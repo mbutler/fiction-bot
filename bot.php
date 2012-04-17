@@ -15,15 +15,16 @@ if ($cuff->hasNewMention() == TRUE && randomChance(50) == TRUE) {
 	$reply_to = $cuff->latest_mentioner_name . " ";
 } else if (randomChance(2) == TRUE && randomChance(50) == TRUE) {
 	$status = 2;
+	$reply_to = $cuff->random_friend . " ";
 } else if (randomChance(2) == TRUE) {
 	$status = 1;
 } else {
 	$status = 0;
 }
 
-//$message = new Message($file, $reply_to);
+$message = new Message($file, $reply_to);
 
-//$cuff->makePost($status, $message->text);
+$cuff->makePost($status, $message->text);
 
 
 ?>

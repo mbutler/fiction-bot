@@ -22,7 +22,7 @@ class User {
 		$tweets = $connection->get('statuses/user_timeline');
 		$friends_list = $connection->get('friends/ids');
 		$latest_tweet_id = $tweets[0]->{'id_str'};	
-		$list_of_mentions = $connection->get('statuses/mentions'); // , array('since_id' => $latest_tweet_id)
+		$list_of_mentions = $connection->get('statuses/mentions', array('since_id' => $latest_tweet_id)); // 
 		$latest_mentioner = $list_of_mentions[0]->{'user'};
 
 		$this->id = $creds->{'id'};
