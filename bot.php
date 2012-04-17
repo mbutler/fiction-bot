@@ -9,6 +9,7 @@ $file = 'random.txt'; // if cron can't find this then make it an absolute path
 $reply_to = "";
 
 $cuff = new User();
+echo $cuff->random_friend;
 
 if ($cuff->hasNewMention() == TRUE && randomChance(50) == TRUE) {
 	$status = 3;
@@ -21,8 +22,9 @@ if ($cuff->hasNewMention() == TRUE && randomChance(50) == TRUE) {
 	$status = 0;
 }
 
-$message = new Message($file, $reply_to);
+//$message = new Message($file, $reply_to);
 
-$cuff->makePost($status, $message->text);
+//$cuff->makePost($status, $message->text);
+
 
 ?>

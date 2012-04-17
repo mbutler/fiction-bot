@@ -13,6 +13,7 @@ class User {
 	public $latest_mention_id;
 	public $latest_mentioner;
 	public $latest_mentioner_name;
+	public $random_friend;
 	
 	function __construct() {
 
@@ -31,6 +32,7 @@ class User {
 		$this->number_following = count($friends_list->{'ids'});
 		$this->latest_mention_id = $list_of_mentions[0]->{'id_str'};
 		$this->latest_mentioner_name = '@' . $latest_mentioner->{'screen_name'};
+		$this->random_friend = "mrsjewkes";
 
 	}
 
@@ -48,6 +50,16 @@ class User {
 		echo $message;
 
 	}
+
+	/*
+	function getRandomFriend() {
+		$friend_list_index = mt_rand(0, $this->number_following-1); 
+		$friend_id = $friends_list->{'ids'}[$friend_list_index];
+		$friend = $connection->get('users/lookup', array('user_id' => $friend_id));
+
+		return $friend;
+	}
+	*/
 	
 }
 
