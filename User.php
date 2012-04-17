@@ -30,9 +30,16 @@ class User {
 		$this->latest_tweet_id = $tweets[0]->{'id_str'};
 		$this->latest_tweet_text = $tweets[0]->{'text'};
 		$this->number_following = count($friends_list->{'ids'});
+
+		//get the latest mention and who made it
 		$this->latest_mention_id = $list_of_mentions[0]->{'id_str'};
 		$this->latest_mentioner_name = '@' . $latest_mentioner->{'screen_name'};
-		$this->random_friend = "mrsjewkes";
+		
+		//get a random friend
+		$friend_list_index = mt_rand(0, $this->number_following-1); 
+		$friend_id = $friends_list->{'ids'}[$friend_list_index];
+		$friend = $connection->get('users/lookup', array('user_id' => $friend_id));
+		$this->random_friend = '@' . $friend[0]->{'screen_name'};
 
 	}
 
@@ -50,16 +57,6 @@ class User {
 		echo $message;
 
 	}
-
-	/*
-	function getRandomFriend() {
-		$friend_list_index = mt_rand(0, $this->number_following-1); 
-		$friend_id = $friends_list->{'ids'}[$friend_list_index];
-		$friend = $connection->get('users/lookup', array('user_id' => $friend_id));
-
-		return $friend;
-	}
-	*/
 	
 }
 

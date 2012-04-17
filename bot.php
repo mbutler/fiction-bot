@@ -9,7 +9,6 @@ $file = 'random.txt'; // if cron can't find this then make it an absolute path
 $reply_to = "";
 
 $cuff = new User();
-echo $cuff->random_friend;
 
 if ($cuff->hasNewMention() == TRUE && randomChance(50) == TRUE) {
 	$status = 3;
