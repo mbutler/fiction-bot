@@ -50,12 +50,37 @@ class User {
 		}
 	}
 
-	function makePost($status_code, $message) {
-		//$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_SECRET);
-		//$connection->post('statuses/update', array('status' => $message));
-		echo $status_code;
-		echo "<br />";
-		echo $message;
+	function makePost($status_code, $message, $reply_to_id) {
+
+		switch ($status_code) {
+			case 3:
+				$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_SECRET);
+				$connection->post('statuses/update', array('status' => $message, 'in_reply_to_status_id' => $reply_to_id));
+				break;
+
+			case 2:
+				$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_SECRET);
+				$connection->post('statuses/update', array('status' => $message));
+				break;
+
+			case 1:
+				$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_SECRET);
+				$connection->post('statuses/update', array('status' => $message));
+				break;
+
+			case 0:
+				break;
+			
+			default:
+				break;
+		}
+
+
+		
+		
+		//echo $status_code;
+		//echo "<br />";
+		//echo $message;
 	}
 
 	function getRandomFriend() {
