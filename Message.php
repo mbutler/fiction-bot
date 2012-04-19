@@ -16,7 +16,7 @@ class Message {
 		$cleaned_text = preg_replace("/&#?[a-z0-9]+;/i","", $output);
 		$cleaned_with_mention = $reply_to . $cleaned_text;
 		$this->text .= checkLength($cleaned_with_mention);
-		$this->text .= '. #q0';
+		$this->text .= '. #epistle'; //add a hashtag
 
 	}
 
@@ -29,7 +29,7 @@ function checkLength($text) {
 	} else {
 
 		// compute how far over the text length is, leaving room for the hashtag
-		$strdiff = (140 - strlen($text)) - 4;
+		$strdiff = (140 - strlen($text)) - 9;
 		$newtext = substr($text, 0, $strdiff);
 
 		//takes off the last bit up to a space
