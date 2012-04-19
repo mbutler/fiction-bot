@@ -1,4 +1,4 @@
-<?php
+r<?php
 require_once 'User.php';
 require_once 'functions.php';
 require_once 'Message.php';
@@ -8,27 +8,24 @@ $file = 'random.txt'; // if cron can't find this then make it an absolute path
 //no reply by default
 $reply_to = "";
 
-$cuff = new User();
+$user = new User();
 
-if ($cuff->hasNewMention() == TRUE && randomChance(50) == TRUE) {
+if ($user->hasNewMention() == TRUE && randomChance(2) == TRUE) {
 	$status = 3;
-	$reply_to = $cuff->latest_mentioner_name . " ";
+	$reply_to = $user->latest_mentioner_name . " ";
 } else if (randomChance(1) == TRUE) {
 	$status = 2;
-	$reply_to = $cuff->getRandomFriend() . " ";
+	$reply_to = $user->getRandomFriend() . " ";
 } else if (randomChance(2) == TRUE) {
 	$status = 1;
 } else {
 	$status = 0;
 }
 
-echo $status;
-echo "<br />";
-echo $reply_to;
+//echo $status;
+$message = new Message($file, $reply_to);
 
-//$message = new Message($file, $reply_to);
-
-//$cuff->makePost($status, $message->text);
+$user->makePost($status, $message->text, $user->latest_mention_id);
 
 
 ?>
