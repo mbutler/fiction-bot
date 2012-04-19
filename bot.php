@@ -13,18 +13,22 @@ $cuff = new User();
 if ($cuff->hasNewMention() == TRUE && randomChance(50) == TRUE) {
 	$status = 3;
 	$reply_to = $cuff->latest_mentioner_name . " ";
-} else if (randomChance(2) == TRUE && randomChance(50) == TRUE) {
+} else if (randomChance(1) == TRUE) {
 	$status = 2;
-	$reply_to = $cuff->random_friend . " ";
+	$reply_to = $cuff->getRandomFriend() . " ";
 } else if (randomChance(2) == TRUE) {
 	$status = 1;
 } else {
 	$status = 0;
 }
 
-$message = new Message($file, $reply_to);
+echo $status;
+echo "<br />";
+echo $reply_to;
 
-$cuff->makePost($status, $message->text);
+//$message = new Message($file, $reply_to);
+
+//$cuff->makePost($status, $message->text);
 
 
 ?>
