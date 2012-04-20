@@ -1,4 +1,4 @@
-r<?php
+<?php
 require_once 'User.php';
 require_once 'functions.php';
 require_once 'Message.php';
