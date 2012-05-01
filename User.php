@@ -75,12 +75,6 @@ class User {
 				break;
 		}
 
-
-		
-		
-		//echo $status_code;
-		//echo "<br />";
-		//echo $message;
 	}
 
 	function getRandomFriend() {
@@ -93,6 +87,14 @@ class User {
 		$random_friend = "@" . $friend[0]->{'screen_name'};
 
 		return $random_friend;
+
+	}
+
+	function friendList() {
+		$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_SECRET);
+		$friends_list = $connection->get('friends/ids');
+
+		return $friends_list;
 
 	}
 
