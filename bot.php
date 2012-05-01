@@ -9,8 +9,23 @@ $file = 'random.txt'; // if cron can't find this then make it an absolute path
 $reply_to = "";
 
 $user = new User();
+$percent = 2; //percent chance the bot will respond to another bot
 
-if ($user->hasNewMention() == TRUE && randomChance(2) == TRUE) {
+//if the latest mentioner is a real person there is a 100% chance of responding
+if (!in_array($user->latest_mentioner_name, $user->friendList())) {
+	$percent = 100;
+} else {
+	$percent = 2;
+}
+
+/* status codes
+3 - there is a new mention and a possible response
+2 - a chance there will be a random mention not in response
+1 - a chance there will be a random post
+0 - nothing happens
+*/
+
+if ($user->hasNewMention() == TRUE && randomChance($percent) == TRUE) {
 	$status = 3;
 	$reply_to = $user->latest_mentioner_name . " ";
 } else if (randomChance(1) == TRUE) {
