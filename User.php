@@ -11,6 +11,7 @@ class User {
 	public $latest_tweet_id;
 	public $latest_tweet_text;	
 	public $latest_mention_id;
+	public $latest_mentioner;
 	public $latest_mentioner_name;
 			
 	function __construct() {
@@ -27,7 +28,7 @@ class User {
 		$tweets = $connection->get('statuses/user_timeline');
 		$this->latest_tweet_id = $tweets[0]->{'id_str'};
 		$list_of_mentions = $connection->get('statuses/mentions', array('since_id' => $this->latest_tweet_id)); // 
-		$latest_mentioner = $list_of_mentions[0]->{'user'};	
+		$this->$latest_mentioner = $list_of_mentions[0]->{'user'};	
 		$this->latest_tweet_text = $tweets[0]->{'text'};
 		
 		//get the latest mention and who made it
