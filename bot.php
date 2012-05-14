@@ -12,7 +12,7 @@ $user = new User();
 $percent = 2; //percent chance the bot will respond to another bot
 
 //if the latest mentioner is a real person there is a 100% chance of responding
-if (in_array($user->latest_mentioner_name, $user->friendList())) {
+if (in_array($user->latest_mentioner, $user->friendList())) {
 	$percent = 2;
 } else {
 	$percent = 100;
