@@ -33,7 +33,7 @@ class User {
 		
 		//get the latest mention and who made it
 		$this->latest_mention_id = $list_of_mentions[0]->{'id_str'};
-		$this->latest_mentioner_name = '@' . $latest_mentioner->{'screen_name'};
+		$this->latest_mentioner_name = '@' . $this->latest_mentioner->{'screen_name'};
 
 	}
 
