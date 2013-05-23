@@ -1,4 +1,9 @@
-In this sample implementation, minor characters break free from their epistolary novels and converse to create a new work using Twitter accounts. @MrsJewkes (Pamela; or, Virtue Rewarded), @SergeantCuff (The Moonstone), @FredericaVernon (Lady Susan), and the bot/human hybrid @CaptainWalton (Frankenstein).
+In this sample implementation, minor characters break free from their epistolary novels and converse to create a new work using Twitter accounts.
+
+@MrsJewkes (Pamela; or, Virtue Rewarded), 
+@SergeantCuff (The Moonstone), 
+@FredericaVernon (Lady Susan), 
+and the bot/human hybrid @CaptainWalton (Frankenstein).
 
 
 To create your own fiction bot:
