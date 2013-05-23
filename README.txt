@@ -1,4 +1,5 @@
-In this sample implementation, minor characters break free from their epistolary novels and converse to create a new work using Twitter accounts.
+In this sample implementation, minor characters break free from their epistolary novels 
+and converse to create a new work using Twitter accounts.
 
 @MrsJewkes (Pamela; or, Virtue Rewarded), 
 @SergeantCuff (The Moonstone), 
